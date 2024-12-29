@@ -1,0 +1,200 @@
+.card {
+  all: unset;
+  display: inline-block;
+  font-size: 10px;
+  height: 50em;
+  width: 35em;
+  margin: 10em auto;
+  perspective: 3000px;
+  perspective-origin: 50% 100px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  padding: 0;
+}
+
+.wide.card {
+  height: 35em;
+  width: 50em;
+}
+
+@media only screen and (max-height: 599px), only screen and (max-width: 599px) {
+  .card {
+    font-size: 8px;
+  }
+}
+
+@media only screen and (min-height: 600px) and (min-width: 600px) {
+  .card {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-height: 800px) and (min-width: 800px) {
+  .card {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-height: 1000px) and (min-width: 1000px) {
+  .card {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-height: 1200px) and (min-width: 1200px) {
+  .card {
+    font-size: 20px;
+  }
+}
+
+.front,
+.back,
+.lining {
+  transition: all ease-out 0.5s;
+  height: 50em;
+  width: 35em;
+  position: absolute;
+  transform-origin: 0 50% 0;
+  left: 0;
+  top: 0;
+  backface-visibility: hidden;
+}
+
+/* Wide override */
+.wide .front,
+.wide .back,
+.wide .lining {
+  height: 35em;
+  width: 50em;
+  transform-origin: 50% 0 0;
+}
+
+.front,
+.back {
+  overflow: hidden;
+  --sheenX: 0;
+  --sheenY: 0;
+  --sheenOpacity: 0;
+  box-shadow: 0 0 100px 1px rgba(0, 0, 0, 0.15);
+}
+
+.front::after {
+  content: "";
+  position: absolute;
+  top: -400px;
+  right: -800px;
+  bottom: -400px;
+  left: -800px;
+  background: linear-gradient(
+    217deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.25) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(var(--sheenX)) translateY(var(--sheenY));
+  opacity: var(--sheenOpacity);
+  transition: opacity linear 0.5s;
+}
+
+.front {
+  transform: rotateY(-0.1deg);
+  background-size: cover;
+}
+
+.wide .front {
+  transform: rotateX(0.1deg);
+}
+
+.front .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0 2em;
+}
+
+.front .content p {
+  font-size: 4em;
+  color: #cf1b1b;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 0 0 3px #fff;
+  align-self: flex-end;
+}
+
+.lining {
+  background: #ededed;
+  transform: rotateY(180deg) translateX(-35em);
+}
+
+.wide .lining {
+  transform: rotateY(-180deg) translateX(-35em);
+}
+
+.back {
+  background: #fafafa;
+}
+
+.back .content {
+  height: 50em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0 2em;
+}
+
+.wide .back .content {
+  height: 35em;
+}
+
+.back .content p {
+  font-size: 2em;
+}
+
+/* Hover and open */
+
+.tall.open .front {
+  transform: rotateY(-145deg);
+}
+
+.wide.open .front {
+  transform: rotateX(145deg);
+}
+
+.tall.open .lining {
+  transform: rotateY(35deg) translateX(-35em);
+}
+
+.wide.open .lining {
+  transform: rotateX(-35deg) translateY(-35em);
+}
+
+.tall.closed:hover .front {
+  transform: rotateY(-10deg);
+}
+
+.wide.closed:hover .front {
+  transform: rotateX(10deg);
+}
+
+.tall.closed:hover .lining {
+  transform: rotateY(170deg);
+}
+
+.wide.closed:hover .lining {
+  transform: rotateX(-170deg);
+}
+
+/* Theme overrides */
+
+.test-card .front {
+  background-image: url("$lib/images/test-image.jpg");
+}
+
+.test-card-2 .front {
+  background-image: url("$lib/images/test-image-2.jpg");
+}

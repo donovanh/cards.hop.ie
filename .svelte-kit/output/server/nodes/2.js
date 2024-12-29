@@ -1,0 +1,8 @@
+
+
+export const index = 2;
+let component_cache;
+export const component = async () => component_cache ??= (await import('../entries/pages/_page.svelte.js')).default;
+export const imports = ["_app/immutable/nodes/2.By0BgQas.js","_app/immutable/chunks/disclose-version.Cq3NdLxz.js","_app/immutable/chunks/runtime.XEpCCKGk.js","_app/immutable/chunks/legacy.RzROs698.js","_app/immutable/chunks/props.-BdiYs83.js","_app/immutable/chunks/render.BbuIci7E.js","_app/immutable/chunks/index-client.BPse69oA.js"];
+export const stylesheets = ["_app/immutable/assets/2.NOB2eVVG.css"];
+export const fonts = ["_app/immutable/assets/kaushan-script-latin-ext-400-normal.Tmja8eh8.woff2","_app/immutable/assets/kaushan-script-latin-ext-400-normal.DO0lLpNC.woff","_app/immutable/assets/kaushan-script-latin-400-normal.BLEbE4S9.woff2","_app/immutable/assets/kaushan-script-latin-400-normal.BHeYM1Q8.woff","_app/immutable/assets/great-vibes-cyrillic-ext-400-normal.CKQhgFwn.woff2","_app/immutable/assets/great-vibes-cyrillic-400-normal.C-wcqNJs.woff2","_app/immutable/assets/great-vibes-cyrillic-400-normal.DtFXCWjq.woff","_app/immutable/assets/great-vibes-vietnamese-400-normal.a2O3jU53.woff2","_app/immutable/assets/great-vibes-vietnamese-400-normal.Cxbm9Uac.woff","_app/immutable/assets/great-vibes-latin-ext-400-normal.DOkzbsi7.woff2","_app/immutable/assets/great-vibes-latin-ext-400-normal.DCXVjJx8.woff","_app/immutable/assets/great-vibes-latin-400-normal.CBcwG6wP.woff2","_app/immutable/assets/great-vibes-latin-400-normal.CLO24iQJ.woff","_app/immutable/assets/reenie-beanie-latin-400-normal.4a-HEdeI.woff2","_app/immutable/assets/reenie-beanie-latin-400-normal.vYxg_nup.woff"];
